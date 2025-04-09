@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  lms:
+    build:
+      context: ./lms
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    depends_on:
+      - cbs-service
+      - scoring-service
+    networks:
+      - credable-network
+
+  cbs-service:
+    build:
+      context: ./mockCRB
+      dockerfile: Dockerfile.cbs
+    ports:
+      - "8093:8093"
+    networks:
+      - credable-network
+
+  scoring-service:
+    build:
+      context: ./mockCRB
+      dockerfile: Dockerfile.scoring
+    ports:
+      - "8094:8094"
+    networks:
+      - credable-network
+
+networks:
+  credable-network:
+    driver: bridge
+
+volumes:
+  postgres_data: 

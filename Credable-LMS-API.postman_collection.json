@@ -1,0 +1,146 @@
+{
+	"info": {
+		"_postman_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+		"name": "Credable LMS API",
+		"description": "Collection of API endpoints for the Credable Loan Management System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "System Status",
+			"item": [
+				{
+					"name": "Get API Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/",
+							"host": ["{{base_url}}"],
+							"path": [""]
+						},
+						"description": "Get the current status of the LMS API and client registration status"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "Request Loan",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/customer/{{customerId}}/loan?amount={{amount}}",
+							"host": ["{{base_url}}"],
+							"path": ["api", "customer", "{{customerId}}", "loan"],
+							"query": [
+								{
+									"key": "amount",
+									"value": "{{amount}}"
+								}
+							]
+						},
+						"description": "Request a new loan for a customer"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Loan History",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/customer/{{customerId}}/loans",
+							"host": ["{{base_url}}"],
+							"path": ["api", "customer", "{{customerId}}", "loans"]
+						},
+						"description": "Get the loan history for a customer"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Latest Loan Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/customer/{{customerId}}/loan/latest",
+							"host": ["{{base_url}}"],
+							"path": ["api", "customer", "{{customerId}}", "loan", "latest"]
+						},
+						"description": "Get the latest loan request for a customer"
+					},
+					"response": []
+				},
+				{
+					"name": "Subscribe Customer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/customer/{{customerId}}/subscribe",
+							"host": ["{{base_url}}"],
+							"path": ["api", "customer", "{{customerId}}", "subscribe"]
+						},
+						"description": "Subscribe a customer to the loan service"
+					},
+					"response": []
+				},
+				{
+					"name": "Check Subscription Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/customer/{{customerId}}/subscription",
+							"host": ["{{base_url}}"],
+							"path": ["api", "customer", "{{customerId}}", "subscription"]
+						},
+						"description": "Check if a customer is subscribed"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transactions",
+			"item": [
+				{
+					"name": "Get Customer Transactions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/transactions/{{customerId}}",
+							"host": ["{{base_url}}"],
+							"path": ["api", "transactions", "{{customerId}}"]
+						},
+						"description": "Get transaction history for a specific customer"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8080",
+			"type": "string"
+		},
+		{
+			"key": "customerId",
+			"value": "1",
+			"type": "string"
+		},
+		{
+			"key": "amount",
+			"value": "1000",
+			"type": "string"
+		}
+	]
+} 
