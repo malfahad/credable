@@ -2,6 +2,11 @@
 
 A Spring Boot-based Loan Management System that integrates with external services for credit scoring and customer verification.
 
+## Demo API
+
+A demo version of the API is available at http://143.244.171.99:8080/
+
+
 ## Features
 
 - Customer registration and verification
