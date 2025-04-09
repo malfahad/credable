@@ -38,7 +38,7 @@ credable/
 │   │   │       ├── wsdl/              # WSDL files
 │   │   │       └── application.yml    # Application configuration
 │   └── pom.xml
-└── mockCrb/               # Mock Credit Reference Bureau
+└── mockCRB/               # Mock Credit Reference Bureau
 ```
 
 ## Setup and Installation
@@ -49,15 +49,15 @@ credable/
    cd credable
    ```
 
-2. Build the project:
+2. Build and run using Docker Compose:
    ```bash
-   cd lms
-   mvn clean install
+   docker-compose up --build
    ```
 
-3. Run the application:
-   ```bash
-   mvn spring-boot:run
+This will build and start:
+- LMS service on port 8080
+- Mock CBS service on port 8093  
+- Mock Scoring service on port 8094
    ```
 
 The application will start on `http://localhost:8080`
